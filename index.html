@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>यादव कम्प्यूटर सेन्टर - Madarpur, Mubarkpur, Azamgarh</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #FF6B00; --deep-red: #C0001A; --navy: #003580;
+  --gold: #FFD700; --light-gold: #FFF4CC; --white: #FFFFFF;
+  --off-white: #F8F6F0; --dark: #1A1A2E; --text-dark: #1C1C1C;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Baloo 2',sans-serif; background:var(--off-white); color:var(--text-dark); overflow-x:hidden; }
+
+/* TICKER */
+.ticker-wrap { background:var(--deep-red); color:var(--gold); padding:8px 0; overflow:hidden; font-weight:700; font-size:0.85rem; }
+.ticker-content { display:inline-block; white-space:nowrap; animation:ticker 35s linear infinite; }
+.ticker-content span { margin:0 40px; }
+@keyframes ticker { 0%{transform:translateX(100vw)} 100%{transform:translateX(-100%)} }
+
+/* HEADER */
+header { background:linear-gradient(135deg,var(--navy) 0%,#001f5b 60%,#002a80 100%); position:relative; overflow:hidden; }
+header::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"); }
+.header-top { display:flex; align-items:center; justify-content:center; padding:28px 40px; position:relative; z-index:2; }
+.logo-area { display:flex; align-items:center; gap:24px; }
+.logo-icon { width:100px; height:100px; background:linear-gradient(135deg,var(--saffron),var(--gold)); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:3rem; box-shadow:0 8px 30px rgba(255,107,0,0.6); flex-shrink:0; }
+.logo-text h1 { font-size:3.2rem; font-weight:800; color:var(--gold); line-height:1.1; text-shadow:2px 2px 10px rgba(0,0,0,0.5); }
+.logo-text .subtitle { color:#a8d4ff; font-size:1.2rem; font-weight:600; letter-spacing:1.5px; margin-top:4px; }
+
+/* HERO BAND */
+.hero-band { background:linear-gradient(90deg,var(--saffron),var(--deep-red),var(--saffron)); padding:14px 40px; text-align:center; position:relative; }
+.hero-band h2 { color:#fff; font-size:1.45rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+.hero-band::before,.hero-band::after { content:'❖'; color:var(--gold); font-size:1.4rem; position:absolute; top:50%; transform:translateY(-50%); }
+.hero-band::before{left:20px} .hero-band::after{right:20px}
+
+/* CONTACT BAR */
+.contact-bar { background:var(--dark); display:flex; justify-content:space-between; align-items:center; padding:10px 40px; gap:20px; flex-wrap:wrap; }
+.contact-item { display:flex; align-items:center; gap:8px; color:#fff; font-size:0.88rem; font-weight:600; }
+.contact-item .icon { width:30px; height:30px; background:var(--saffron); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; }
+.contact-item .label { color:#aaa; font-size:0.72rem; display:block; }
+.contact-item .value { color:var(--gold); font-weight:700; }
+
+/* MAIN */
+main { padding:40px; max-width:1200px; margin:0 auto; }
+
+/* SECTION TITLE */
+.section-title { text-align:center; margin-bottom:32px; }
+.section-title h3 { font-size:1.8rem; font-weight:800; background:linear-gradient(135deg,var(--navy),var(--deep-red)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.section-title::after { content:''; display:block; width:80px; height:4px; background:linear-gradient(90deg,var(--saffron),var(--gold)); margin:8px auto 0; border-radius:2px; }
+
+/* CATEGORY */
+.services-section { margin-bottom:50px; }
+.category-block { margin-bottom:36px; }
+.category-title { display:flex; align-items:center; gap:12px; margin-bottom:16px; padding:10px 20px; background:linear-gradient(135deg,var(--navy),#1a3a7a); border-radius:12px; color:#fff; font-size:1.1rem; font-weight:800; }
+.category-title .cat-icon { width:36px; height:36px; background:var(--gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+
+/* SERVICE CARD */
+.service-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
+.service-card { background:#fff; border-radius:14px; padding:18px 16px; text-align:center; box-shadow:0 3px 12px rgba(0,0,0,0.08); border:2px solid transparent; cursor:pointer; transition:all 0.25s ease; position:relative; overflow:hidden; }
+.service-card::before { content:''; position:absolute; top:0;left:0;right:0; height:4px; background:linear-gradient(90deg,var(--saffron),var(--deep-red)); transform:scaleX(0); transition:transform 0.25s ease; }
+.service-card:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,0.14); border-color:var(--saffron); }
+.service-card:hover::before { transform:scaleX(1); }
+.svc-icon { font-size:2rem; margin-bottom:8px; display:block; }
+.svc-name-hi { font-size:1rem; font-weight:700; color:var(--navy); line-height:1.3; }
+.svc-sub { font-size:0.75rem; color:#888; margin-top:4px; }
+.apply-btn { display:inline-block; margin-top:10px; background:linear-gradient(135deg,var(--saffron),var(--deep-red)); color:#fff; border:none; border-radius:20px; padding:5px 16px; font-size:0.78rem; font-weight:700; cursor:pointer; font-family:'Baloo 2',sans-serif; }
+
+/* NOTICE */
+.notice-section { background:linear-gradient(135deg,var(--light-gold),#fff8e1); border:2px solid var(--gold); border-radius:16px; padding:24px 28px; margin-bottom:40px; display:flex; gap:20px; align-items:flex-start; }
+.notice-icon { font-size:2.5rem; flex-shrink:0; }
+.notice-content h4 { font-size:1.1rem; font-weight:800; color:var(--deep-red); margin-bottom:10px; }
+.notice-content ul { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.notice-content ul li { font-size:0.9rem; color:var(--text-dark); padding-left:22px; position:relative; font-weight:600; }
+.notice-content ul li::before { content:'✅'; position:absolute; left:0; font-size:0.8rem; }
+
+/* CSC */
+.csc-section { background:linear-gradient(135deg,#e8f5e9,#f1f8e9); border:2px solid #4caf50; border-radius:16px; padding:24px 28px; margin-bottom:40px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.csc-logo-box { background:#4caf50; border-radius:12px; padding:14px 20px; color:#fff; font-size:1.5rem; font-weight:800; letter-spacing:2px; flex-shrink:0; }
+.csc-info h4 { font-size:1.1rem; font-weight:800; color:#2e7d32; margin-bottom:6px; }
+.csc-info p { font-size:0.88rem; color:#555; line-height:1.6; }
+
+/* ABOUT */
+.about-section { background:linear-gradient(135deg,var(--navy),#001f5b); border-radius:20px; padding:40px; color:#fff; margin-bottom:40px; position:relative; overflow:hidden; }
+.about-section::before { content:'🖥️'; font-size:12rem; position:absolute; right:-20px; bottom:-20px; opacity:0.05; }
+.about-section h3 { font-size:1.6rem; font-weight:800; color:var(--gold); margin-bottom:16px; }
+.about-section p { font-size:1rem; line-height:1.8; color:#c8d8ff; max-width:700px; margin-bottom:20px; }
+.about-stats { display:flex; gap:30px; flex-wrap:wrap; margin-top:20px; }
+.stat-box { background:rgba(255,255,255,0.1); border-radius:12px; padding:16px 24px; text-align:center; border:1px solid rgba(255,215,0,0.3); }
+.stat-box .num { font-size:2rem; font-weight:800; color:var(--gold); display:block; }
+.stat-box .lbl { font-size:0.8rem; color:#a8c0ff; font-weight:600; }
+
+/* FOOTER */
+footer { background:var(--dark); color:#fff; padding:30px 40px; margin-top:10px; }
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; margin-bottom:24px; }
+.footer-col h5 { font-size:1rem; font-weight:800; color:var(--gold); margin-bottom:14px; padding-bottom:8px; border-bottom:2px solid rgba(255,215,0,0.3); }
+.footer-col p,.footer-col a { font-size:0.85rem; color:#aaa; line-height:1.8; text-decoration:none; display:block; }
+.footer-col a:hover { color:var(--gold); }
+.highlight { color:var(--saffron); font-weight:700; }
+.footer-bottom { max-width:1200px; margin:0 auto; border-top:1px solid #333; padding-top:16px; text-align:center; font-size:0.8rem; color:#666; }
+.footer-bottom strong { color:var(--gold); }
+
+/* WHATSAPP */
+.whatsapp-float { position:fixed; bottom:28px; right:28px; width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; box-shadow:0 6px 20px rgba(37,211,102,0.5); cursor:pointer; z-index:999; text-decoration:none; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+/* ===== MODAL ===== */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:2000; align-items:center; justify-content:center; padding:16px; backdrop-filter:blur(4px); }
+.modal-overlay.active { display:flex; }
+.modal-box { background:#fff; border-radius:20px; width:100%; max-width:560px; max-height:90vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,0.35); animation:modalIn 0.28s ease; }
+@keyframes modalIn { from{transform:scale(0.9);opacity:0} to{transform:scale(1);opacity:1} }
+.modal-header { background:linear-gradient(135deg,var(--navy),#1a3a7a); color:#fff; padding:18px 22px; border-radius:20px 20px 0 0; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10; }
+.modal-header-left { display:flex; align-items:center; gap:10px; }
+.modal-header h2 { font-size:1.2rem; font-weight:800; }
+.modal-hicon { font-size:1.7rem; }
+.modal-close { background:rgba(255,255,255,0.2); border:none; color:#fff; width:34px; height:34px; border-radius:50%; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.modal-close:hover { background:rgba(255,255,255,0.35); }
+.modal-body { padding:22px; }
+.form-note { background:var(--light-gold); border-left:4px solid var(--gold); border-radius:8px; padding:10px 14px; font-size:0.82rem; color:#555; margin-bottom:18px; font-weight:600; }
+.form-group { margin-bottom:15px; }
+.form-group label { display:block; font-weight:700; font-size:0.87rem; color:var(--navy); margin-bottom:5px; }
+.req { color:var(--deep-red); }
+.form-group input,.form-group select,.form-group textarea { width:100%; padding:10px 13px; border:2px solid #e0e0e0; border-radius:10px; font-size:0.9rem; font-family:'Baloo 2',sans-serif; color:var(--text-dark); transition:border-color 0.2s; background:#fafafa; }
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline:none; border-color:var(--saffron); background:#fff; }
+.form-group textarea { resize:vertical; min-height:75px; }
+.modal-submit { width:100%; padding:13px; background:linear-gradient(135deg,var(--saffron),var(--deep-red)); color:#fff; border:none; border-radius:12px; font-size:1rem; font-weight:800; cursor:pointer; font-family:'Baloo 2',sans-serif; margin-top:6px; letter-spacing:0.5px; }
+.modal-submit:hover { opacity:0.9; }
+.success-box { display:none; text-align:center; padding:28px 18px; }
+.success-box .s-icon { font-size:3.5rem; margin-bottom:12px; }
+.success-box h3 { font-size:1.25rem; font-weight:800; color:#2e7d32; margin-bottom:10px; }
+.success-box p { font-size:0.9rem; color:#555; line-height:1.7; }
+.wa-confirm-btn { display:inline-flex; align-items:center; gap:8px; margin-top:18px; background:#25D366; color:#fff; padding:11px 24px; border-radius:10px; font-weight:800; font-size:0.95rem; text-decoration:none; border:none; cursor:pointer; font-family:'Baloo 2',sans-serif; }
+.close-btn { display:inline-block; margin-top:10px; margin-left:10px; background:#eee; color:#333; padding:11px 20px; border-radius:10px; font-weight:700; font-size:0.9rem; border:none; cursor:pointer; font-family:'Baloo 2',sans-serif; }
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .header-top{padding:20px 16px;}
+  .logo-text h1{font-size:2rem;}
+  .logo-icon{width:72px;height:72px;font-size:2.2rem;}
+  main{padding:20px 16px;}
+  .hero-band h2{font-size:1rem;}
+  .hero-band::before,.hero-band::after{display:none;}
+  .contact-bar{padding:10px 16px;gap:12px;}
+  .about-section{padding:24px 20px;}
+  .notice-section{flex-direction:column;gap:12px;}
+  footer{padding:24px 16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker-content">
+    <span>🎯 आधार कार्ड सेवा उपलब्ध</span><span>🚂 रेल टिकट बुकिंग करें</span>
+    <span>💰 मनी ट्रांसफर सेवा</span><span>📋 जाति / आय / निवास प्रमाण पत्र</span>
+    <span>✈️ एयर टिकट बुकिंग</span><span>🏦 बैंक खाता खोलें - KYC सेवा</span>
+    <span>📱 मोबाइल रिचार्ज &amp; बिल पेमेंट</span><span>🎓 स्कॉलरशिप फॉर्म भरे जाते हैं</span>
+    <span>📞 संपर्क: 9795454169</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-top">
+    <div class="logo-area">
+      <div class="logo-icon">💻</div>
+      <div class="logo-text">
+        <h1>यादव कम्प्यूटर सेन्टर</h1>
+        <div class="subtitle">एवं सहज जनसेवा केन्द्र</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="hero-band">
+  <h2>Common Services Center — सभी सरकारी सेवाएं एक छत के नीचे</h2>
+</div>
+
+<div class="contact-bar">
+  <div class="contact-item"><div class="icon">📍</div><div><span class="label">पता</span><span class="value">मदारपुर, मुबारकपुर, आज़मगढ़</span></div></div>
+  <div class="contact-item"><div class="icon">👤</div><div><span class="label">प्रोप्राइटर</span><span class="value">के. के. यादव</span></div></div>
+  <div class="contact-item"><div class="icon">📞</div><div><span class="label">मोबाइल / WhatsApp</span><span class="value">9795454169</span></div></div>
+  <div class="contact-item"><div class="icon">⏰</div><div><span class="label">समय</span><span class="value">सोम–शनि: 8:00 AM – 7:00 PM</span></div></div>
+</div>
+
+<main>
+  <div class="csc-section">
+    <div class="csc-logo-box">CSC</div>
+    <div class="csc-info">
+      <h4>🏛️ Common Services Center (CSC) — Authorised Centre</h4>
+      <p>यादव कम्प्यूटर सेन्टर भारत सरकार के Digital India Programme के तहत एक Authorised CSC Centre है।</p>
+    </div>
+  </div>
+
+  <div class="notice-section">
+    <div class="notice-icon">📢</div>
+    <div class="notice-content">
+      <h4>⚠️ महत्वपूर्ण जानकारी</h4>
+      <ul>
+        <li>आधार कार्ड संशोधन होता है एवं आधार कार्ड से पैसे निकाले जाते हैं (AEPS)</li>
+        <li>हमारे यहाँ सभी भर्तियों के फॉर्म व स्कॉलरशिप के भार्म भरे जाते हैं</li>
+        <li>सभी प्रकार के ऑनलाइन फॉर्म भरे जाते हैं — सभी प्रकार का फीस पेमेंट</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="services-section">
+    <div class="section-title"><h3>🛎️ हमारी सेवाएं — क्लिक करके फॉर्म भरें</h3></div>
+
+    <!-- 1. DOCUMENTS -->
+    <div class="category-block">
+      <div class="category-title"><div class="cat-icon">📄</div>दस्तावेज़ सेवाएं — Document Services</div>
+      <div class="service-grid">
+        <div class="service-card" onclick="openForm('aadhar')"><span class="svc-icon">🪪</span><div class="svc-name-hi">आधार कार्ड</div><div class="svc-sub">Apply / Update / Correction</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('pan')"><span class="svc-icon">🗂️</span><div class="svc-name-hi">पैन कार्ड</div><div class="svc-sub">New / Correction / Reprint</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('ration')"><span class="svc-icon">🌾</span><div class="svc-name-hi">राशन कार्ड</div><div class="svc-sub">Apply / Correction / Transfer</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('passport')"><span class="svc-icon">🛂</span><div class="svc-name-hi">पासपोर्ट सेवा</div><div class="svc-sub">New / Renewal Application</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('dl')"><span class="svc-icon">🚗</span><div class="svc-name-hi">ड्राइविंग लाइसेंस</div><div class="svc-sub">Apply / Renewal / DL Status</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('jati')"><span class="svc-icon">📜</span><div class="svc-name-hi">जाति प्रमाण पत्र</div><div class="svc-sub">Caste Certificate</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('aay')"><span class="svc-icon">💵</span><div class="svc-name-hi">आय प्रमाण पत्र</div><div class="svc-sub">Income Certificate</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('niwas')"><span class="svc-icon">🏠</span><div class="svc-name-hi">निवास प्रमाण पत्र</div><div class="svc-sub">Domicile Certificate</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+      </div>
+    </div>
+
+    <!-- 2. BANKING -->
+    <div class="category-block">
+      <div class="category-title"><div class="cat-icon">🏦</div>बैंकिंग व भुगतान सेवाएं — Banking &amp; Payment</div>
+      <div class="service-grid">
+        <div class="service-card" onclick="openForm('aeps')"><span class="svc-icon">💳</span><div class="svc-name-hi">आधार पेमेंट (AEPS)</div><div class="svc-sub">Cash Withdrawal via Aadhaar</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('money')"><span class="svc-icon">💸</span><div class="svc-name-hi">मनी ट्रांसफर</div><div class="svc-sub">NEFT / IMPS / DMT</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('bank')"><span class="svc-icon">🏦</span><div class="svc-name-hi">बैंक खाता खोलें</div><div class="svc-sub">SBI / Union Bank / Others</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('pfkyc')"><span class="svc-icon">🔍</span><div class="svc-name-hi">पी.एफ. KYC</div><div class="svc-sub">PF / UAN KYC Update</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('bill')"><span class="svc-icon">⚡</span><div class="svc-name-hi">बिल पेमेंट</div><div class="svc-sub">Bijli / Gas / Water Bill</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('recharge')"><span class="svc-icon">📱</span><div class="svc-name-hi">मोबाइल रिचार्ज</div><div class="svc-sub">All Operators Recharge</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('fees')"><span class="svc-icon">🏫</span><div class="svc-name-hi">फीस पेमेंट</div><div class="svc-sub">School / College / Exam Fee</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('dth')"><span class="svc-icon">📺</span><div class="svc-name-hi">DTH रिचार्ज</div><div class="svc-sub">Tata Sky / Dish TV / Airtel</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+      </div>
+    </div>
+
+    <!-- 3. TRAVEL -->
+    <div class="category-block">
+      <div class="category-title"><div class="cat-icon">🎫</div>यात्रा टिकट — Travel Tickets</div>
+      <div class="service-grid">
+        <div class="service-card" onclick="openForm('train')"><span class="svc-icon">🚂</span><div class="svc-name-hi">रेल टिकट</div><div class="svc-sub">IRCTC Train Booking</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('flight')"><span class="svc-icon">✈️</span><div class="svc-name-hi">एयर टिकट</div><div class="svc-sub">Domestic / International</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('bus')"><span class="svc-icon">🚌</span><div class="svc-name-hi">बस टिकट</div><div class="svc-sub">All State Buses / Private</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('hotel')"><span class="svc-icon">🏨</span><div class="svc-name-hi">होटल बुकिंग</div><div class="svc-sub">Online Hotel Reservation</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+      </div>
+    </div>
+
+    <!-- 4. GOVT -->
+    <div class="category-block">
+      <div class="category-title"><div class="cat-icon">🏛️</div>सरकारी योजनाएं व फॉर्म — Govt. Schemes</div>
+      <div class="service-grid">
+        <div class="service-card" onclick="openForm('mnrega')"><span class="svc-icon">⛏️</span><div class="svc-name-hi">मनरेगा सेवा</div><div class="svc-sub">MGNREGA Registration</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('scholarship')"><span class="svc-icon">🎓</span><div class="svc-name-hi">स्कॉलरशिप फॉर्म</div><div class="svc-sub">UP / Central Scholarship</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('bharti')"><span class="svc-icon">📝</span><div class="svc-name-hi">भर्ती फॉर्म</div><div class="svc-sub">Sarkari Naukri Online Form</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('pmkisan')"><span class="svc-icon">🌾</span><div class="svc-name-hi">पीएम किसान</div><div class="svc-sub">PM Kisan Registration</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('ayushman')"><span class="svc-icon">🏥</span><div class="svc-name-hi">आयुष्मान कार्ड</div><div class="svc-sub">Ayushman Bharat PMJAY</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('awas')"><span class="svc-icon">🏡</span><div class="svc-name-hi">आवास योजना</div><div class="svc-sub">PMAY / Gramin Awas</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('rojgar')"><span class="svc-icon">💼</span><div class="svc-name-hi">बेरोजगारी भत्ता</div><div class="svc-sub">Employment Registration</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('other')"><span class="svc-icon">📋</span><div class="svc-name-hi">अन्य ऑनलाइन फॉर्म</div><div class="svc-sub">All Types Online Forms</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+      </div>
+    </div>
+
+    <!-- 5. COMPUTER -->
+    <div class="category-block">
+      <div class="category-title"><div class="cat-icon">🖨️</div>अन्य कम्प्यूटर सेवाएं</div>
+      <div class="service-grid">
+        <div class="service-card" onclick="openForm('print')"><span class="svc-icon">🖨️</span><div class="svc-name-hi">फोटोकॉपी / प्रिंटिंग</div><div class="svc-sub">B&amp;W / Color Print &amp; Xerox</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('photo')"><span class="svc-icon">📸</span><div class="svc-name-hi">फोटो सेवा</div><div class="svc-sub">Passport Size / ID Photos</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('dataentry')"><span class="svc-icon">📊</span><div class="svc-name-hi">Data Entry / Typing</div><div class="svc-sub">MS Office / Excel / Word</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('dsc')"><span class="svc-icon">🔒</span><div class="svc-name-hi">डिजिटल सिग्नेचर</div><div class="svc-sub">DSC / e-Sign Services</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+        <div class="service-card" onclick="openForm('ecom')"><span class="svc-icon">📦</span><div class="svc-name-hi">ई-कॉमर्स</div><div class="svc-sub">Amazon / Flipkart Orders</div><button class="apply-btn">📋 फॉर्म भरें</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h3>🙏 हमारे बारे में — About Us</h3>
+    <p>यादव कम्प्यूटर सेन्टर, मदारपुर, मुबारकपुर, आज़मगढ़ में स्थित एक विश्वसनीय और अधिकृत Common Services Center (CSC) है।</p>
+    <p>प्रोप्राइटर के. के. यादव के कुशल नेतृत्व में, हमारा केंद्र State Bank of India, Union Bank of India, और Digital India के साथ मिलकर काम करता है।</p>
+    <div class="about-stats">
+      <div class="stat-box"><span class="num">50+</span><span class="lbl">सेवाएं उपलब्ध</span></div>
+      <div class="stat-box"><span class="num">10,000+</span><span class="lbl">संतुष्ट ग्राहक</span></div>
+      <div class="stat-box"><span class="num">6 दिन</span><span class="lbl">सेवा उपलब्धता</span></div>
+      <div class="stat-box"><span class="num">24/7</span><span class="lbl">WhatsApp सपोर्ट</span></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h5>💻 यादव कम्प्यूटर सेन्टर</h5>
+      <p>एवं सहज जनसेवा केन्द्र</p>
+      <p style="margin-top:8px;">Authorised CSC — Common Services Center</p>
+    </div>
+    <div class="footer-col">
+      <h5>📍 संपर्क जानकारी</h5>
+      <p>मदारपुर, मुबारकपुर, जिला आज़मगढ़</p>
+      <p style="margin-top:8px;"><span class="highlight">📞 9795454169</span></p>
+      <p><span class="highlight">👤 के. के. यादव</span></p>
+    </div>
+    <div class="footer-col">
+      <h5>⏰ समय</h5>
+      <p>सोमवार – शनिवार</p>
+      <p><span class="highlight">8:00 AM – 7:00 PM</span></p>
+    </div>
+    <div class="footer-col">
+      <h5>🔗 त्वरित फॉर्म</h5>
+      <a href="#" onclick="openForm('jati');return false;">जाति प्रमाण पत्र</a>
+      <a href="#" onclick="openForm('aay');return false;">आय प्रमाण पत्र</a>
+      <a href="#" onclick="openForm('niwas');return false;">निवास प्रमाण पत्र</a>
+      <a href="#" onclick="openForm('train');return false;">रेल टिकट बुकिंग</a>
+      <a href="#" onclick="openForm('scholarship');return false;">स्कॉलरशिप फॉर्म</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 <strong>यादव कम्प्यूटर सेन्टर</strong> — मदारपुर, मुबारकपुर, आज़मगढ़ | All Rights Reserved</p>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/919795454169" target="_blank">💬</a>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay" onclick="bgClose(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-hicon" id="mIcon">📋</span>
+        <h2 id="mTitle">फॉर्म</h2>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-note" id="formNote">⚠️ सभी जानकारी सही भरें। सबमिट करते ही WhatsApp + Email पर सूचना जाएगी।</div>
+      <div id="formFields"></div>
+      <div class="success-box" id="successBox">
+        <div class="s-icon">✅</div>
+        <h3>फॉर्म सफलतापूर्वक सबमिट हुआ!</h3>
+        <p>आपकी जानकारी हमें मिल गई है।<br>हम जल्द ही आपसे संपर्क करेंगे।<br><br><strong>के. के. यादव — 9795454169</strong></p>
+        <button class="wa-confirm-btn" id="waBtn">💬 WhatsApp पर Confirm करें</button>
+        <button class="close-btn" onclick="closeModal()">बंद करें</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const OWNER_WA = '919795454169';
+const OWNER_EMAIL = 'yadavcomputercentre@gmail.com'; // ← apna email yahan likhein
+
+const FORMS = {
+  aadhar:{icon:'🪪',title:'आधार कार्ड आवेदन',fields:[
+    {id:'name',l:'पूरा नाम',t:'text',r:1,p:'जैसे: राम कुमार यादव'},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1,p:'10 अंक'},
+    {id:'address',l:'पूरा पता',t:'area',r:1,p:'गाँव, तहसील, जिला'},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['नया आधार','नाम सुधार','पता सुधार','जन्म तिथि सुधार','मोबाइल लिंक','अन्य']},
+    {id:'rem',l:'अन्य जानकारी',t:'area',r:0,p:''}
+  ]},
+  pan:{icon:'🗂️',title:'पैन कार्ड आवेदन',fields:[
+    {id:'name',l:'पूरा नाम (English)',t:'text',r:1,p:'RAMKUMAR YADAV'},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['नया पैन कार्ड','नाम सुधार','Reprint/Duplicate']}
+  ]},
+  ration:{icon:'🌾',title:'राशन कार्ड आवेदन',fields:[
+    {id:'name',l:'मुखिया का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'members',l:'परिवार के सदस्य',t:'number',r:1,p:'जैसे: 5'},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['नया राशन कार्ड','नाम जोड़ना','नाम हटाना','सुधार','Transfer']},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'}
+  ]},
+  passport:{icon:'🛂',title:'पासपोर्ट आवेदन',fields:[
+    {id:'name',l:'पूरा नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['नया पासपोर्ट','Renewal','Tatkal']},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'rem',l:'अन्य जानकारी',t:'area',r:0}
+  ]},
+  dl:{icon:'🚗',title:'ड्राइविंग लाइसेंस आवेदन',fields:[
+    {id:'name',l:'पूरा नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['Learner License (LL)','Permanent DL','Renewal','Duplicate DL']},
+    {id:'vehicle',l:'वाहन का प्रकार',t:'sel',r:1,o:['Two Wheeler','Four Wheeler','Both (2W+4W)','Commercial']},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'}
+  ]},
+  jati:{icon:'📜',title:'जाति प्रमाण पत्र आवेदन',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'jname',l:'जाति का नाम',t:'text',r:1,p:'जैसे: यादव, कुशवाहा'},
+    {id:'varg',l:'वर्ग',t:'sel',r:1,o:['OBC','SC','ST','General']},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'}
+  ]},
+  aay:{icon:'💵',title:'आय प्रमाण पत्र आवेदन',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता / पति का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'income',l:'वार्षिक आय (₹)',t:'text',r:1,p:'जैसे: 80000'},
+    {id:'occ',l:'व्यवसाय',t:'text',r:1,p:'किसान / मजदूर / व्यापार'},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'}
+  ]},
+  niwas:{icon:'🏠',title:'निवास प्रमाण पत्र आवेदन',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'निवास का पूरा पता',t:'area',r:1,p:'गाँव, पोस्ट, तहसील, जिला, पिनकोड'},
+    {id:'since',l:'कब से निवासी',t:'text',r:1,p:'जैसे: जन्म से / 2010 से'},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'}
+  ]},
+  aeps:{icon:'💳',title:'आधार पेमेंट (AEPS)',fields:[
+    {id:'name',l:'खाताधारक का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'bank',l:'बैंक का नाम',t:'text',r:1,p:'SBI / PNB / BOI'},
+    {id:'amount',l:'राशि (₹)',t:'number',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['Cash Withdrawal','Balance Enquiry','Mini Statement']}
+  ]},
+  money:{icon:'💸',title:'मनी ट्रांसफर',fields:[
+    {id:'sname',l:'भेजने वाले का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'rname',l:'पाने वाले का नाम',t:'text',r:1},
+    {id:'acc',l:'खाता नंबर',t:'text',r:1},
+    {id:'ifsc',l:'IFSC Code',t:'text',r:1,p:'SBIN0001234'},
+    {id:'amount',l:'राशि (₹)',t:'number',r:1},
+    {id:'stype',l:'Transfer Type',t:'sel',r:1,o:['IMPS','NEFT','DMT']}
+  ]},
+  bank:{icon:'🏦',title:'बैंक खाता खोलने का आवेदन',fields:[
+    {id:'name',l:'पूरा नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'bname',l:'बैंक का नाम',t:'sel',r:1,o:['State Bank of India','Union Bank','Bank of India','PNB','अन्य']},
+    {id:'acctype',l:'खाते का प्रकार',t:'sel',r:1,o:['Savings Account','Jan Dhan Account','Current Account']},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'}
+  ]},
+  pfkyc:{icon:'🔍',title:'PF / UAN KYC Update',fields:[
+    {id:'name',l:'कर्मचारी का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'uan',l:'UAN Number',t:'text',r:1,p:'12 अंक'},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'acc',l:'बैंक खाता नंबर',t:'text',r:1},
+    {id:'ifsc',l:'IFSC Code',t:'text',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['KYC Update','PF Withdrawal','Pension','Transfer','Balance']}
+  ]},
+  bill:{icon:'⚡',title:'बिल पेमेंट',fields:[
+    {id:'name',l:'उपभोक्ता का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'btype',l:'बिल का प्रकार',t:'sel',r:1,o:['बिजली बिल','गैस बिल','पानी बिल','Postpaid Mobile','Broadband','अन्य']},
+    {id:'cno',l:'Consumer No. / Account No.',t:'text',r:1,p:'बिल पर लिखा नंबर'},
+    {id:'amount',l:'राशि (₹)',t:'number',r:1},
+    {id:'company',l:'Company / Provider',t:'text',r:1,p:'UPPCL / Indane / Jio'}
+  ]},
+  recharge:{icon:'📱',title:'मोबाइल रिचार्ज',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'rno',l:'रिचार्ज करने वाला नंबर',t:'tel',r:1},
+    {id:'op',l:'ऑपरेटर',t:'sel',r:1,o:['Jio','Airtel','Vi (Vodafone-Idea)','BSNL']},
+    {id:'amount',l:'रिचार्ज राशि (₹)',t:'number',r:1},
+    {id:'mobile',l:'आपका संपर्क नंबर',t:'tel',r:1}
+  ]},
+  fees:{icon:'🏫',title:'फीस पेमेंट',fields:[
+    {id:'sname',l:'छात्र का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'inst',l:'स्कूल / कॉलेज का नाम',t:'text',r:1},
+    {id:'cls',l:'कक्षा / Course',t:'text',r:1,p:'Class 10 / BA 2nd Year'},
+    {id:'ftype',l:'फीस का प्रकार',t:'sel',r:1,o:['School Fee','Exam Fee','College Fee','Board Fee','University Fee']},
+    {id:'amount',l:'फीस राशि (₹)',t:'number',r:1}
+  ]},
+  dth:{icon:'📺',title:'DTH रिचार्ज',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'prov',l:'DTH Provider',t:'sel',r:1,o:['Tata Play','Dish TV','Airtel DTH','Sun Direct','Videocon D2H']},
+    {id:'sid',l:'Subscriber ID / Customer ID',t:'text',r:1,p:'Remote या Bill पर देखें'},
+    {id:'amount',l:'रिचार्ज राशि (₹)',t:'number',r:1}
+  ]},
+  train:{icon:'🚂',title:'रेल टिकट बुकिंग',fields:[
+    {id:'name',l:'यात्री का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'from',l:'From Station (रवाना)',t:'text',r:1,p:'Azamgarh'},
+    {id:'to',l:'To Station (गंतव्य)',t:'text',r:1,p:'New Delhi'},
+    {id:'date',l:'यात्रा की तारीख',t:'date',r:1},
+    {id:'cls',l:'कक्षा',t:'sel',r:1,o:['Sleeper (SL)','3rd AC (3A)','2nd AC (2A)','1st AC (1A)','Chair Car (CC)','General (GN)']},
+    {id:'pax',l:'यात्रियों की संख्या',t:'number',r:1},
+    {id:'quota',l:'Quota',t:'sel',r:1,o:['General','Tatkal','Ladies','Senior Citizen']},
+    {id:'aadhar',l:'आधार नंबर (मुख्य यात्री)',t:'text',r:1,p:'12 अंक'}
+  ]},
+  flight:{icon:'✈️',title:'एयर टिकट बुकिंग',fields:[
+    {id:'name',l:'यात्री का नाम',t:'text',r:1,p:'Passport जैसा नाम'},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'from',l:'From City',t:'text',r:1,p:'Varanasi (VNS)'},
+    {id:'to',l:'To City',t:'text',r:1,p:'Delhi (DEL)'},
+    {id:'date',l:'यात्रा की तारीख',t:'date',r:1},
+    {id:'rdate',l:'वापसी की तारीख',t:'date',r:0},
+    {id:'pax',l:'यात्रियों की संख्या',t:'number',r:1},
+    {id:'cls',l:'Flight Class',t:'sel',r:1,o:['Economy','Business']},
+    {id:'budget',l:'बजट (approx)',t:'text',r:0,p:'5000 तक'}
+  ]},
+  bus:{icon:'🚌',title:'बस टिकट बुकिंग',fields:[
+    {id:'name',l:'यात्री का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'from',l:'From (रवाना)',t:'text',r:1,p:'Azamgarh'},
+    {id:'to',l:'To (गंतव्य)',t:'text',r:1,p:'Lucknow'},
+    {id:'date',l:'यात्रा की तारीख',t:'date',r:1},
+    {id:'btype',l:'बस का प्रकार',t:'sel',r:1,o:['UPSRTC (Rodways)','Volvo AC','Sleeper','Private Bus']},
+    {id:'pax',l:'यात्रियों की संख्या',t:'number',r:1}
+  ]},
+  hotel:{icon:'🏨',title:'होटल बुकिंग',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'city',l:'शहर',t:'text',r:1,p:'Varanasi / Ayodhya'},
+    {id:'cin',l:'Check-in Date',t:'date',r:1},
+    {id:'cout',l:'Check-out Date',t:'date',r:1},
+    {id:'rooms',l:'कमरों की संख्या',t:'number',r:1},
+    {id:'guests',l:'मेहमानों की संख्या',t:'number',r:1},
+    {id:'budget',l:'बजट प्रति रात',t:'text',r:0,p:'1000-2000'}
+  ]},
+  mnrega:{icon:'⛏️',title:'मनरेगा सेवा',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता / पति का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'पूरा पता',t:'area',r:1,p:'गाँव, ग्राम पंचायत, ब्लॉक, जिला'},
+    {id:'jcard',l:'Job Card Number (यदि हो)',t:'text',r:0},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['नया Job Card','काम के लिए आवेदन','Payment Status','अन्य']},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'}
+  ]},
+  scholarship:{icon:'🎓',title:'स्कॉलरशिप फॉर्म',fields:[
+    {id:'sname',l:'छात्र का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'cls',l:'कक्षा / Course',t:'text',r:1,p:'Class 11 / BA 1st Year'},
+    {id:'inst',l:'स्कूल / कॉलेज का नाम',t:'text',r:1},
+    {id:'cat',l:'वर्ग',t:'sel',r:1,o:['OBC','SC','ST','General (EWS)']},
+    {id:'stype',l:'Scholarship Type',t:'sel',r:1,o:['Pre-Matric','Post-Matric','UP Scholarship','Central','अन्य']},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'acc',l:'बैंक खाता नंबर',t:'text',r:1}
+  ]},
+  bharti:{icon:'📝',title:'भर्ती फॉर्म',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'qual',l:'शैक्षिक योग्यता',t:'sel',r:1,o:['10th Pass','12th Pass','Graduate','Post Graduate','ITI/Diploma']},
+    {id:'post',l:'भर्ती / पद का नाम',t:'text',r:1,p:'UP Police / Railway / UPSSSC'},
+    {id:'cat',l:'वर्ग',t:'sel',r:1,o:['General','OBC','SC','ST','EWS']},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'rem',l:'अन्य जानकारी',t:'area',r:0}
+  ]},
+  pmkisan:{icon:'🌾',title:'पीएम किसान योजना',fields:[
+    {id:'name',l:'किसान का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'acc',l:'बैंक खाता नंबर',t:'text',r:1},
+    {id:'ifsc',l:'IFSC Code',t:'text',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['नया पंजीकरण','Status Check','eKYC','Correction']}
+  ]},
+  ayushman:{icon:'🏥',title:'आयुष्मान कार्ड (PMJAY)',fields:[
+    {id:'name',l:'लाभार्थी का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता / पति का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['नया कार्ड','Eligibility Check','eKYC']}
+  ]},
+  awas:{icon:'🏡',title:'आवास योजना (PMAY)',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता / पति का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'cat',l:'वर्ग',t:'sel',r:1,o:['General','OBC','SC','ST','Minority']},
+    {id:'income',l:'वार्षिक आय (₹)',t:'text',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'acc',l:'बैंक खाता नंबर',t:'text',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['PMAY Gramin','PMAY Urban','Status Check']}
+  ]},
+  rojgar:{icon:'💼',title:'रोजगार / बेरोजगारी भत्ता',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'dob',l:'जन्म तिथि',t:'date',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'qual',l:'शैक्षिक योग्यता',t:'sel',r:1,o:['10th','12th','Graduate','Post Graduate','ITI/Diploma']},
+    {id:'address',l:'पूरा पता',t:'area',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['Employment Registration','Sewayojan Portal','Berojgari Bhatta','Status']}
+  ]},
+  other:{icon:'📋',title:'अन्य ऑनलाइन फॉर्म',fields:[
+    {id:'name',l:'आवेदक का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'detail',l:'किस सेवा / फॉर्म के लिए',t:'area',r:1,p:'विस्तार से लिखें'},
+    {id:'address',l:'पता',t:'area',r:0},
+    {id:'aadhar',l:'आधार नंबर (यदि हो)',t:'text',r:0}
+  ]},
+  print:{icon:'🖨️',title:'प्रिंटिंग / फोटोकॉपी',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'stype',l:'सेवा का प्रकार',t:'sel',r:1,o:['B&W Print','Color Print','Photocopy','Scan','Lamination']},
+    {id:'pages',l:'पृष्ठों की संख्या',t:'number',r:1},
+    {id:'rem',l:'विशेष जानकारी',t:'area',r:0,p:'A4/A3 size, document type'}
+  ]},
+  photo:{icon:'📸',title:'फोटो सेवा',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'ptype',l:'फोटो का प्रकार',t:'sel',r:1,o:['Passport Size','Aadhar Card','PAN Card','Visa Photo','अन्य ID Photo']},
+    {id:'copies',l:'कितनी Photos चाहिए',t:'number',r:1}
+  ]},
+  dataentry:{icon:'📊',title:'Data Entry / Typing',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'wtype',l:'काम का प्रकार',t:'sel',r:1,o:['MS Word Document','MS Excel Sheet','Data Entry','Resume/CV बनाना','Application टाइप करना','अन्य']},
+    {id:'detail',l:'विस्तार से बताएं',t:'area',r:1,p:''}
+  ]},
+  dsc:{icon:'🔒',title:'डिजिटल सिग्नेचर (DSC)',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'fname',l:'पिता का नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'email',l:'Email ID',t:'email',r:1},
+    {id:'aadhar',l:'आधार नंबर',t:'text',r:1,p:'12 अंक'},
+    {id:'purpose',l:'उद्देश्य',t:'text',r:1,p:'GST / Tender / MCA'},
+    {id:'stype',l:'DSC Type',t:'sel',r:1,o:['Class 3 DSC','e-Sign','Renewal']}
+  ]},
+  ecom:{icon:'📦',title:'ई-कॉमर्स / Online Shopping',fields:[
+    {id:'name',l:'नाम',t:'text',r:1},
+    {id:'mobile',l:'मोबाइल नंबर',t:'tel',r:1},
+    {id:'platform',l:'Platform',t:'sel',r:1,o:['Amazon','Flipkart','Meesho','Myntra','अन्य']},
+    {id:'product',l:'Product का नाम',t:'text',r:1,p:'Fan / Mobile / Cooler'},
+    {id:'budget',l:'बजट',t:'text',r:0,p:'2000 तक'},
+    {id:'address',l:'Delivery Address',t:'area',r:1,p:'पूरा पता'}
+  ]}
+};
+
+let waMsg = '';
+
+function openForm(key) {
+  const f = FORMS[key];
+  if (!f) return;
+  document.getElementById('mIcon').textContent = f.icon;
+  document.getElementById('mTitle').textContent = f.title;
+  document.getElementById('successBox').style.display = 'none';
+  document.getElementById('formNote').style.display = 'block';
+
+  let html = '';
+  f.fields.forEach(fd => {
+    html += `<div class="form-group"><label for="ff_${fd.id}">${fd.l} ${fd.r?'<span class="req">*</span>':''}</label>`;
+    if (fd.t === 'sel') {
+      html += `<select id="ff_${fd.id}"><option value="">-- चुनें --</option>`;
+      fd.o.forEach(o => html += `<option>${o}</option>`);
+      html += `</select>`;
+    } else if (fd.t === 'area') {
+      html += `<textarea id="ff_${fd.id}" placeholder="${fd.p||''}" rows="3"></textarea>`;
+    } else {
+      html += `<input type="${fd.t}" id="ff_${fd.id}" placeholder="${fd.p||''}">`;
+    }
+    html += `</div>`;
+  });
+  html += `<button class="modal-submit" onclick="submitForm('${key}')">✅ सबमिट करें</button>`;
+
+  document.getElementById('formFields').innerHTML = html;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function submitForm(key) {
+  const f = FORMS[key];
+  let ok = true;
+  let lines = [];
+
+  f.fields.forEach(fd => {
+    const el = document.getElementById('ff_' + fd.id);
+    if (!el) return;
+    const v = el.value.trim();
+    if (fd.r && !v) { el.style.borderColor = '#C0001A'; ok = false; }
+    else { el.style.borderColor = ''; if(v) lines.push(`*${fd.l}:* ${v}`); }
+  });
+
+  if (!ok) { alert('⚠️ कृपया सभी जरूरी (*) जानकारी भरें!'); return; }
+
+  const now = new Date().toLocaleString('hi-IN');
+  waMsg = `🔔 *नई Service Request*\n`;
+  waMsg += `━━━━━━━━━━━━━━\n`;
+  waMsg += `${f.icon} *${f.title}*\n`;
+  waMsg += `━━━━━━━━━━━━━━\n`;
+  waMsg += lines.join('\n');
+  waMsg += `\n━━━━━━━━━━━━━━\n📅 ${now}\n📍 यादव कम्प्यूटर सेन्टर`;
+
+  // Email
+  const emailBody = lines.map(l => l.replace(/\*/g,'')).join('\n');
+  const mailHref = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent('New Request: ' + f.title)}&body=${encodeURIComponent(emailBody + '\n\nDate: ' + now)}`;
+
+  // Show success
+  document.getElementById('formFields').innerHTML = '';
+  document.getElementById('formNote').style.display = 'none';
+  document.getElementById('successBox').style.display = 'block';
+
+  // Set WA button
+  document.getElementById('waBtn').onclick = () => window.open(`https://wa.me/${OWNER_WA}?text=${encodeURIComponent(waMsg)}`, '_blank');
+
+  // Auto-open WhatsApp
+  setTimeout(() => window.open(`https://wa.me/${OWNER_WA}?text=${encodeURIComponent(waMsg)}`, '_blank'), 500);
+
+  // Auto-open Email
+  setTimeout(() => { window.location.href = mailHref; }, 2000);
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.getElementById('formFields').innerHTML = '';
+  document.getElementById('successBox').style.display = 'none';
+  document.getElementById('formNote').style.display = 'block';
+  document.body.style.overflow = '';
+}
+
+function bgClose(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
